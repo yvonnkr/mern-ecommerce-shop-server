@@ -9,6 +9,7 @@ require("dotenv").config();
 
 const connectDB = require("./db/db-connect");
 const authRoutes = require("./routes/auth");
+const userRoutes = require("./routes/user");
 
 //coonect db
 connectDB();
@@ -25,6 +26,7 @@ app.use(cors());
 
 // routes middleware
 app.use("/api", authRoutes);
+app.use("/api", userRoutes);
 
 const port = process.env.PORT || 8000;
 

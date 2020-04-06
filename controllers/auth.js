@@ -61,7 +61,30 @@ exports.signout = (req, res) => {
   res.json({ message: "Signout success" });
 };
 
+//middleware
+//Req Header  -- Authorization  = Bearer xxxxxx
 exports.requireSignin = expressJwt({
   secret: process.env.JWT_SECRET,
   userProperty: "auth",
 });
+
+//middleware
+exports.isAuth = (req, res, next) => {
+  let user = req.profile && req.auth && req.profile._id == req.auth._id;
+  if (!user) {
+    return res.status(403).json({
+      error: "Access denied",
+    });
+  }
+  next();
+};
+
+//middleware  --role 1 == Admin 0 == NotAdmin
+exports.isAdmin = (req, res, next) => {
+  if (req.profile.role === 0) {
+    return res.status(403).json({
+      error: "Admin resourse! Access denied",
+    });
+  }
+  next();
+};
