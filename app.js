@@ -8,7 +8,7 @@ const expressValidator = require("express-validator");
 require("dotenv").config();
 
 const connectDB = require("./db/db-connect");
-const userRoutes = require("./routes/user");
+const authRoutes = require("./routes/auth");
 
 //coonect db
 connectDB();
@@ -24,7 +24,7 @@ app.use(expressValidator());
 app.use(cors());
 
 // routes middleware
-app.use("/api", userRoutes);
+app.use("/api", authRoutes);
 
 const port = process.env.PORT || 8000;
 
