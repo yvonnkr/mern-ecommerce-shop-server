@@ -1,14 +1,17 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "",
+  "description": "ecommerce shop server",
   "main": "app.js",
+  "engines": {
+    "node": "12.7.0"
+  },
   "scripts": {
     "start": "node app.js",
     "server": "nodemon -r dotenv/config app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "yvonnkr",
   "license": "ISC",
   "dependencies": {
     "@sendgrid/mail": "^7.0.0",
