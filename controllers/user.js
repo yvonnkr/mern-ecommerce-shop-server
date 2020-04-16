@@ -22,7 +22,7 @@ exports.read = (req, res) => {
 };
 
 exports.update = (req, res) => {
-  req.body.role = 0; // role will always be 0
+  // req.body.role = 0; // role will always be 0
   User.findOneAndUpdate(
     { _id: req.profile._id },
     { $set: req.body },
