@@ -5,7 +5,7 @@ const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const expressValidator = require("express-validator");
 
-require("dotenv").config();
+// require("dotenv").config();
 
 const connectDB = require("./db/db-connect");
 
@@ -16,11 +16,11 @@ const productRoutes = require("./routes/product");
 const braintreeRoutes = require("./routes/braintree");
 const orderRoutes = require("./routes/order");
 
-//coonect db
-connectDB();
-
 // app
 const app = express();
+
+//connect db
+connectDB();
 
 // middlewares
 // app.use(morgan("dev"));

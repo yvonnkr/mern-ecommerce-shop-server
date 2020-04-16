@@ -1,7 +1,7 @@
 const braintree = require("braintree");
 
 const User = require("../models/user");
-require("dotenv").config();
+// require("dotenv").config();
 
 //connect to braintree
 const gateway = braintree.connect({
