@@ -65,6 +65,9 @@
 //   });
 
 const express = require("express");
+const mongoose = require("mongoose");
+require("dotenv").config();
+
 const app = express();
 
 app.get("/", (req, res) => {
@@ -73,4 +76,21 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 8000;
 
-app.listen(PORT, () => console.log(`server app on port ${PORT}`));
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Connected to database");
+
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log("Connection to Database failed");
+    console.error(err.message);
+  });
