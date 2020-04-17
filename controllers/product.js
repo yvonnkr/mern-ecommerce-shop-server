@@ -3,7 +3,11 @@ const _ = require("lodash");
 const fs = require("fs");
 
 const Product = require("../models/product");
-const { errorHandler } = require("../errorhandler/dbErrorHandler");
+// const { errorHandler } = require("../errorhandler/dbErrorHandler");
+
+const errorHandler = (err) => {
+  return err;
+};
 
 //middleware
 exports.productById = (req, res, next, id) => {

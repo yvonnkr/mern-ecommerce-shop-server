@@ -1,9 +1,12 @@
 const sgMail = require("@sendgrid/mail");
 
 const { Order, CartItem } = require("../models/order");
-const { errorHandler } = require("../errorhandler/dbErrorHandler");
-
 require("dotenv").config();
+// const { errorHandler } = require("../errorhandler/dbErrorHandler");
+
+const errorHandler = (err) => {
+  return err;
+};
 
 sgMail.setApiKey(process.env.SENDGRID_MAIL_API_KEY);
 
