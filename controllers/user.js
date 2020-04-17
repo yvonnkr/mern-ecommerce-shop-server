@@ -1,6 +1,6 @@
 const User = require("../models/user");
 const { Order } = require("../models/order");
-const { errorHandler } = require("../errorhandler/dbErrorHandler.js");
+const { errorHandler } = require("../errorhandler/dberrorhandler");
 
 // const errorHandler = (err) => {
 //   return err;
