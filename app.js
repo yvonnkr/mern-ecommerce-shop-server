@@ -1,14 +1,14 @@
 // const morgan = require("morgan");
 // const bodyParser = require("body-parser");
 const express = require("express");
-// const cookieParser = require("cookie-parser");
+const cookieParser = require("cookie-parser");
 const cors = require("cors");
 const expressValidator = require("express-validator");
 const mongoose = require("mongoose");
 
 require("dotenv").config();
 
-// const connectDB = require("./db/db-connect");
+const connectDB = require("./db/db-connect");
 
 const authRoutes = require("./routes/auth");
 const userRoutes = require("./routes/user");
@@ -21,13 +21,13 @@ const orderRoutes = require("./routes/order");
 const app = express();
 
 //connect db
-// connectDB();
+connectDB();
 
 // middlewares
 // app.use(morgan("dev"));
 // app.use(bodyParser.json());
 app.use(express.json({ extended: false }));
-// app.use(cookieParser());
+app.use(cookieParser());
 app.use(expressValidator());
 app.use(cors());
 
@@ -41,42 +41,9 @@ app.use("/api", orderRoutes);
 
 const PORT = process.env.PORT || 8000;
 
-// app.listen(PORT, () => {
-//   console.log(`Server is running on port ${PORT}`);
-// });
-
-mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connected to database");
-
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  })
-  .catch((err) => {
-    console.log("Connection to Database failed");
-    console.error(err.message);
-  });
-
-//=============================================================
-
-// const express = require("express");
-// const mongoose = require("mongoose");
-// require("dotenv").config();
-
-// const app = express();
-
-// app.get("/", (req, res) => {
-//   res.json({ message: "hello world" });
-// });
-
-// const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
 
 // mongoose
 //   .connect(process.env.MONGODB_URI, {
