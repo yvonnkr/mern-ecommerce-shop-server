@@ -1,7 +1,7 @@
 const sgMail = require("@sendgrid/mail");
 
 const { Order, CartItem } = require("../models/order");
-const { errorHandler } = require("../helpers/dbErrorHandler");
+const { errorHandler } = require("../errorhandler/dbErrorHandler");
 
 require("dotenv").config();
 

@@ -1,6 +1,6 @@
 const Category = require("../models/category");
 const Product = require("../models/product");
-const { errorHandler } = require("../helpers/dbErrorHandler");
+const { errorHandler } = require("../errorhandler/dbErrorHandler");
 
 //middleware
 exports.categoryById = (req, res, next, id) => {

@@ -1,6 +1,6 @@
 const User = require("../models/user");
 const { Order } = require("../models/order");
-const { errorHandler } = require("../helpers/dbErrorHandler");
+const { errorHandler } = require("../errorhandler/dbErrorHandler");
 
 //middleware
 exports.userById = (req, res, next, id) => {
