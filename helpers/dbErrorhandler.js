@@ -46,6 +46,10 @@
 //   return message;
 // };
 
-exports.errorHandler = (err) => {
+function errorHandler(err) {
   return err;
+}
+
+module.exports = {
+  errorHandler: errorHandler,
 };
